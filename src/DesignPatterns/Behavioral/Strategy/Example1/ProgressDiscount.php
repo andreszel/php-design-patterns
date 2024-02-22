@@ -2,13 +2,13 @@
 
 namespace App\DesignPatterns\Behavioral\Strategy\Example1;
 
-class ProgressDiscount implements DiscountI
+final class ProgressDiscount implements DiscountI
 {
     private const MIN_PERCENT_DISCOUNT = 0.05;
     private const MIDDLE_PERCENT_DISCOUNT = 0.1;
     private const MAX_PERCENT_DISCOUNT = 0.2;
     private const MIN_PRICE = 10;
-    private const MAX_PRICE = 10;
+    private const MAX_PRICE = 50;
 
     public function calculateDiscount($price)
     {

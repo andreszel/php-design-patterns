@@ -2,7 +2,7 @@
 
 namespace App\DesignPatterns\Behavioral\Strategy\Example1;
 
-class NoDiscount implements DiscountI
+final class NoDiscount implements DiscountI
 {
     private const DISCOUNT = 0;
 

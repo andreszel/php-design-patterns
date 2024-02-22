@@ -2,7 +2,7 @@
 
 namespace App\DesignPatterns\Behavioral\Strategy\Example1;
 
-class DiscountCoupon implements DiscountI
+final class DiscountCoupon implements DiscountI
 {
     public const MINIMAL_DISCOUNT = 0;
     public const DISCOUNT = 10;

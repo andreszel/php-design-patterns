@@ -9,6 +9,11 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use App\DesignPatterns\Behavioral\Strategy\Example1\BlackFriday;
 use App\DesignPatterns\Behavioral\Strategy\Example1\CheckoutFactory;
+use App\DesignPatterns\Behavioral\Strategy\Example1\Collection;
+use App\DesignPatterns\Behavioral\Strategy\Example1\DiscountCoupon;
+use App\DesignPatterns\Behavioral\Strategy\Example1\NoDiscount;
+use App\DesignPatterns\Behavioral\Strategy\Example1\ProgressDiscount;
+use App\DesignPatterns\Behavioral\Strategy\Example1\TestCollection;
 use App\DesignPatterns\Creational\AbstractFactory\Page;
 use App\DesignPatterns\Creational\AbstractFactory\PHPTemplateFactory;
 use App\DesignPatterns\Creational\Singleton\Config;
