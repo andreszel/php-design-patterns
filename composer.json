@@ -1,0 +1,31 @@
+{
+    "name": "andreszel/design-patterns-examples-php",
+    "description": "Example implementations design patterns in PHP",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Andrzej Szelka",
+            "email": "szelkaandrzej@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "szelkaandrzej@gmail.com"
+    },
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "App\\Tests\\": "tests/"
+        },
+        "classmap": [
+            "src/"
+        ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "10.4.x-dev"
+    }
+}
