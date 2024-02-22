@@ -7,19 +7,17 @@
 // Autoload files using the Composer autoloader.
 require_once __DIR__ . '/vendor/autoload.php';
 
-use App\DesignPatterns\Behavioral\Strategy\Example1\BlackFriday;
 use App\DesignPatterns\Behavioral\Strategy\Example1\CheckoutFactory;
-use App\DesignPatterns\Behavioral\Strategy\Example1\Collection;
-use App\DesignPatterns\Behavioral\Strategy\Example1\DiscountCoupon;
-use App\DesignPatterns\Behavioral\Strategy\Example1\NoDiscount;
-use App\DesignPatterns\Behavioral\Strategy\Example1\ProgressDiscount;
-use App\DesignPatterns\Behavioral\Strategy\Example1\TestCollection;
+use App\DesignPatterns\Behavioral\Strategy\Example2\FCM;
+use App\DesignPatterns\Behavioral\Strategy\Example2\Mail;
+use App\DesignPatterns\Behavioral\Strategy\Example2\SendAnnouncementFCM;
+use App\DesignPatterns\Behavioral\Strategy\Example2\SendOtpSMS;
+use App\DesignPatterns\Behavioral\Strategy\Example2\SendVerificationEmail;
+use App\DesignPatterns\Behavioral\Strategy\Example2\SMS;
 use App\DesignPatterns\Creational\AbstractFactory\Page;
 use App\DesignPatterns\Creational\AbstractFactory\PHPTemplateFactory;
 use App\DesignPatterns\Creational\Singleton\Config;
 use App\DesignPatterns\Creational\Singleton\ConnectDB;
-use App\DesignPatterns\Creational\Singleton\Connection;
-use App\DesignPatterns\Creational\Singleton\DB;
 use App\DesignPatterns\Creational\Singleton\Logger;
 use App\DesignPatterns\Structural\Facade\Example1\Api;
 use App\Example\HelloWorld;
@@ -119,7 +117,7 @@ Logger::log("\n");
 // ------------------------------------------------------------------
 // STRUCTURAL DESIGN PATTERNS
 // ------------------------------------------------------------------
-Logger::log("-> PRZYKLAD NR 5 - STRUCTURAL\n\nFasada - API");
+Logger::log("-> PRZYKLAD NR 5 - STRUCTURAL\n\nFacade - API");
 Logger::log("");
 
 $apiFacade = new Api();
@@ -136,7 +134,7 @@ Logger::log("\n");
 // ------------------------------------------------------------------
 // BEHAVIORAL DESIGN PATTERNS
 // ------------------------------------------------------------------
-Logger::log("-> PRZYKLAD NR 6 - BEHAVIORAL\n\nCalculate TOTAL PRICE in promotion(selected strategy)");
+Logger::log("-> PRZYKLAD NR 6 - BEHAVIORAL\n\nStrategy - Calculate TOTAL PRICE in promotion(selected strategy)");
 Logger::log("");
 
 $totalPriceCoupon = CheckoutFactory::create(250, 'coupon')->getTotalPrice();
@@ -146,3 +144,16 @@ Logger::log("Total price Black Friday is: " . number_format($totalPriceBlackFrid
 $totalPriceProgress = CheckoutFactory::create(250, 'progress')->getTotalPrice();
 Logger::log("Total price Progress is: " . number_format($totalPriceProgress, 2, '.', '') . " PLN");
 Logger::log("\n");
+
+Logger::log("-> PRZYKLAD NR 7 - BEHAVIORAL\n\nStrategy - Send notification");
+Logger::log("");
+
+$email = new Mail();
+(new SendVerificationEmail())->setSendable($email)->notify();
+$fcm = new FCM();
+(new SendAnnouncementFCM())->setSendable($fcm)->notify();
+$sms = new SMS();
+(new SendOtpSMS())->setSendable($sms)->notify();
+
+Logger::log("");
+
