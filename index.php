@@ -14,6 +14,8 @@ use App\DesignPatterns\Behavioral\Strategy\Example2\SendAnnouncementFCM;
 use App\DesignPatterns\Behavioral\Strategy\Example2\SendOtpSMS;
 use App\DesignPatterns\Behavioral\Strategy\Example2\SendVerificationEmail;
 use App\DesignPatterns\Behavioral\Strategy\Example2\SMS;
+use App\DesignPatterns\Behavioral\TemplateMethod\PublishingMessageOnSocial\Facebook;
+use App\DesignPatterns\Behavioral\TemplateMethod\PublishingMessageOnSocial\Twitter;
 use App\DesignPatterns\Creational\AbstractFactory\Page;
 use App\DesignPatterns\Creational\AbstractFactory\PHPTemplateFactory;
 use App\DesignPatterns\Creational\Singleton\Config;
@@ -155,5 +157,47 @@ $fcm = new FCM();
 $sms = new SMS();
 (new SendOtpSMS())->setSendable($sms)->notify();
 
+Logger::log("-> PRZYKLAD NR 8 - BEHAVIORAL\n\nTemplate Method - Publishing Message on Social Network");
 Logger::log("");
 
+/**
+ * The client code.
+ */
+echo "Username: \n";
+$username = readline();
+echo "Password: \n";
+$password = readline();
+echo "Message: \n";
+$message = readline();
+
+echo "\nChoose the social network to post the message:\n" .
+    "1 - Facebook\n" .
+    "2 - Twitter\n";
+$choice = readline();
+
+// Now, let's create a proper social network object and send the message.
+if ($choice == 1) {
+    $network = new Facebook($username, $password);
+} elseif ($choice == 2) {
+    $network = new Twitter($username, $password);
+} else {
+    die("Sorry, I'm not sure what you mean by that.\n");
+}
+$network->post($message);
+
+Logger::log("");
+
+
+
+/**
+ * A little helper function that makes waiting times feel real.
+ */
+function simulateNetworkLatency()
+{
+    $i = 0;
+    while ($i < 5) {
+        echo ".";
+        sleep(1);
+        $i++;
+    }
+}
