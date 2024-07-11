@@ -22,6 +22,10 @@ use App\DesignPatterns\Creational\FactoryMethod\Plan\PlanFactory;
 use App\DesignPatterns\Creational\Singleton\Config;
 use App\DesignPatterns\Creational\Singleton\ConnectDB;
 use App\DesignPatterns\Creational\Singleton\Logger;
+use App\DesignPatterns\Structural\Adapter\Example2\ExternalLoggerFileWriter;
+use App\DesignPatterns\Structural\Adapter\Example2\ExternalLoggerFileWriterAdapter;
+use App\DesignPatterns\Structural\Adapter\Example2\LoggerFileWriter;
+use App\DesignPatterns\Structural\Adapter\Example2\RandomProcessor;
 use App\DesignPatterns\Structural\Facade\Example1\Api;
 use App\Example\HelloWorld;
 use App\Helper\ConstHelper;
@@ -150,6 +154,21 @@ $apiFacade->login();
 $apiFacade->getProducts();
 $apiFacade->getProduct(154);
 $apiFacade->getBuyProducts();
+
+Logger::log("\n");
+Logger::log(ConstHelper::SEPARATOR);
+Logger::log("\n");
+
+Logger::log("-> PRZYKLAD NR " . $counterExample++ . " - STRUCTURAL\n\nFacade - API");
+Logger::log("");
+
+// external class
+$randomProcessor = new RandomProcessor(new ExternalLoggerFileWriterAdapter(new ExternalLoggerFileWriter()));
+$randomProcessor->process(['test','test']);
+
+// internal class
+//$randomProcessor = new RandomProcessor(new LoggerFileWriter());
+//$randomProcessor->process(['test','test']);
 
 Logger::log("\n");
 Logger::log(ConstHelper::SEPARATOR);
