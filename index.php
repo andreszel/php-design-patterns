@@ -18,6 +18,7 @@ use App\DesignPatterns\Behavioral\TemplateMethod\PublishingMessageOnSocial\Faceb
 use App\DesignPatterns\Behavioral\TemplateMethod\PublishingMessageOnSocial\Twitter;
 use App\DesignPatterns\Creational\AbstractFactory\Page;
 use App\DesignPatterns\Creational\AbstractFactory\PHPTemplateFactory;
+use App\DesignPatterns\Creational\FactoryMethod\Plan\PlanFactory;
 use App\DesignPatterns\Creational\Singleton\Config;
 use App\DesignPatterns\Creational\Singleton\ConnectDB;
 use App\DesignPatterns\Creational\Singleton\Logger;
@@ -26,6 +27,8 @@ use App\Example\HelloWorld;
 use App\Helper\ConstHelper;
 
 const ROOT_DIRECTORY = __DIR__;
+
+$counterExample = 1;
 
 $entry = new HelloWorld();
 
@@ -45,7 +48,7 @@ echo ConstHelper::NEW_LINE;
 // SINGLETON - od tej pory nie korzystam już z echo tylko z naszego przykładu
 Logger::log("Wzorzec SINGLETON", true);
 Logger::log("");
-Logger::log("-> PRZYKLAD NR 1\nKlasa Logger, która wypisuje wiadomość na standardowe wyjście, tzn. do konsoli.");
+Logger::log("-> PRZYKLAD NR " . $counterExample++ . "\nKlasa Logger, która wypisuje wiadomość na standardowe wyjście, tzn. do konsoli.");
 Logger::log("- Sprawdzimy, czy klasa dziala jak zaklada Singleton");
 Logger::log("- Pobiermay-tworzymy dwa obiekty-dwie instancje i sprawdzamy, czy te obiekty są tym samym, czy może innym obiektem");
 
@@ -62,7 +65,7 @@ Logger::log("- Dzięki tej klasie i takiemu wzorcowi, możemy od tej pory korzys
 Logger::log("");
 Logger::log("UWAGA!\nPrzykład został nieco zmodyfikowany, ponieważ chciałbym korzystać z tej klasy, a nie potrzebuję w każdej linii daty, dodałem drugą zmienną widthDate. Normalnie przy logowaniu założeniem raczej jest, żebyśmy wiedzieli kiedy coś co jest zapisane miało miejsce., w końcu to jest logger.");
 
-Logger::log("\n-> PRZYKLAD NR 2\nKlasa Config");
+Logger::log("\n-> PRZYKLAD NR " . $counterExample++ . "\nKlasa Config");
 Logger::log("Klasa przetrzymującą konfigurację możemy stworzyć o różnym stopniu zaawansowania. Jeżeli mamy mały projekt to tak klasa nie będzie skomplikowana, ale jeżeli mamy duży projekt to może się okazać, że klasa będzie bardziej skomplikowana. Poziom skomplikowana polega na tym, że mamy klasę która może mieć zdefiniowane zmienne przechowujące konfigurację, możemy mieć klasę, która te zmienne pobiera z plików po kluczu, np. database.host, możemy też do tego dopisać metodę, która będzie nam ustawiała nowe wartości i zapisywała do pliku, klucze mogą być z jednym poziomem zagnieżdżenia, mogą być z wieloma poziomami, konfiguracja może być przechowywana w plikach yaml itd. Może być również sytuacja, gdzie konfiguracja jest zczytywana z wielu plików. Ja chciałem stworzyć klasę bardziej skomplikowaną. Chodzi głównie o to, że taka klasa jest jedynym punktem dostępowym do konfiguracji aplikacji. Konfiguracja może być czytana z wielu plików, ale punkt dostępowy jest jeden. :)");
 Logger::log("");
 
@@ -90,7 +93,7 @@ Logger::log("- Koniec testu klasy Config!");
 
 Logger::log("\n\n");
 Logger::log(ConstHelper::SEPARATOR);
-Logger::log("\n-> PRZYKLAD NR 3\n\nKlasa ConnectDB");
+Logger::log("\n-> PRZYKLAD NR " . $counterExample++ . "\n\nKlasa ConnectDB");
 Logger::log(ConstHelper::START_ROW_STRING . 'TEST DESIGN PATTERNS');
 Logger::log(ConstHelper::START_ROW_STRING . 'SINGLETON - Database connection');
 Logger::log("\n");
@@ -106,7 +109,7 @@ var_dump($connectionB);
 Logger::log(ConstHelper::SEPARATOR);
 Logger::log("");
 
-Logger::log("-> PRZYKLAD NR 4\n\nFabryka abstrakcyjna - template [twig, php]");
+Logger::log("-> PRZYKLAD NR " . $counterExample++ . "\n\nFabryka abstrakcyjna - template [twig, php]");
 Logger::log("");
 
 $page = new Page('Simple page title', 'This is the body page');
@@ -116,10 +119,29 @@ Logger::log("\n");
 Logger::log(ConstHelper::SEPARATOR);
 Logger::log("\n");
 
+Logger::log("-> PRZYKLAD NR " . $counterExample++ . "\n\nFactory method - Plan");
+Logger::log("");
+
+$planFactory = new PlanFactory();
+$plan = $planFactory->createPlan('free');
+//$plan = $planFactory->createPlan('pro');
+if ($plan) {
+    echo '<p>' . $plan->getRate() . '</p>';
+    echo '<ul>';
+        foreach ($plan->getFeatures() as $feature) {
+            echo '<li>' . $feature . '</li>';
+        }
+    echo '</ul>';
+}
+
+Logger::log("\n");
+Logger::log(ConstHelper::SEPARATOR);
+Logger::log("\n");
+
 // ------------------------------------------------------------------
 // STRUCTURAL DESIGN PATTERNS
 // ------------------------------------------------------------------
-Logger::log("-> PRZYKLAD NR 5 - STRUCTURAL\n\nFacade - API");
+Logger::log("-> PRZYKLAD NR " . $counterExample++ . " - STRUCTURAL\n\nFacade - API");
 Logger::log("");
 
 $apiFacade = new Api();
@@ -136,7 +158,7 @@ Logger::log("\n");
 // ------------------------------------------------------------------
 // BEHAVIORAL DESIGN PATTERNS
 // ------------------------------------------------------------------
-Logger::log("-> PRZYKLAD NR 6 - BEHAVIORAL\n\nStrategy - Calculate TOTAL PRICE in promotion(selected strategy)");
+Logger::log("-> PRZYKLAD NR " . $counterExample++ . " - BEHAVIORAL\n\nStrategy - Calculate TOTAL PRICE in promotion(selected strategy)");
 Logger::log("");
 
 $totalPriceCoupon = CheckoutFactory::create(250, 'coupon')->getTotalPrice();
@@ -147,7 +169,7 @@ $totalPriceProgress = CheckoutFactory::create(250, 'progress')->getTotalPrice();
 Logger::log("Total price Progress is: " . number_format($totalPriceProgress, 2, '.', '') . " PLN");
 Logger::log("\n");
 
-Logger::log("-> PRZYKLAD NR 7 - BEHAVIORAL\n\nStrategy - Send notification");
+Logger::log("-> PRZYKLAD NR " . $counterExample++ . " - BEHAVIORAL\n\nStrategy - Send notification");
 Logger::log("");
 
 $email = new Mail();
@@ -157,7 +179,7 @@ $fcm = new FCM();
 $sms = new SMS();
 (new SendOtpSMS())->setSendable($sms)->notify();
 
-Logger::log("-> PRZYKLAD NR 8 - BEHAVIORAL\n\nTemplate Method - Publishing Message on Social Network");
+Logger::log("-> PRZYKLAD NR " . $counterExample++ . " - BEHAVIORAL\n\nTemplate Method - Publishing Message on Social Network");
 Logger::log("");
 
 /**
