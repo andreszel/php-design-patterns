@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DesignPatterns\Behavioral\Strategy\Example1;
+namespace App\DesignPatterns\Behavioral\Strategy\CalculateDiscount;
 
 class Checkout
 {
