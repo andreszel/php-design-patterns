@@ -7,13 +7,13 @@
 // Autoload files using the Composer autoloader.
 require_once __DIR__ . '/vendor/autoload.php';
 
-use App\DesignPatterns\Behavioral\Strategy\Example1\CheckoutFactory;
-use App\DesignPatterns\Behavioral\Strategy\Example2\FCM;
-use App\DesignPatterns\Behavioral\Strategy\Example2\Mail;
-use App\DesignPatterns\Behavioral\Strategy\Example2\SendAnnouncementFCM;
-use App\DesignPatterns\Behavioral\Strategy\Example2\SendOtpSMS;
-use App\DesignPatterns\Behavioral\Strategy\Example2\SendVerificationEmail;
-use App\DesignPatterns\Behavioral\Strategy\Example2\SMS;
+use App\DesignPatterns\Behavioral\Strategy\CalculateDiscount\CheckoutFactory;
+use App\DesignPatterns\Behavioral\Strategy\SendNotification\FCM;
+use App\DesignPatterns\Behavioral\Strategy\SendNotification\Mail;
+use App\DesignPatterns\Behavioral\Strategy\SendNotification\SendAnnouncementFCM;
+use App\DesignPatterns\Behavioral\Strategy\SendNotification\SendOtpSMS;
+use App\DesignPatterns\Behavioral\Strategy\SendNotification\SendVerificationEmail;
+use App\DesignPatterns\Behavioral\Strategy\SendNotification\SMS;
 use App\DesignPatterns\Behavioral\TemplateMethod\PublishingMessageOnSocial\Facebook;
 use App\DesignPatterns\Behavioral\TemplateMethod\PublishingMessageOnSocial\Twitter;
 use App\DesignPatterns\Creational\AbstractFactory\Page;

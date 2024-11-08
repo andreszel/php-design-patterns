@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DesignPatterns\Behavioral\Strategy\Example2;
+namespace App\DesignPatterns\Behavioral\Strategy\SendNotification;
 
 class Mail implements Sendable
 {
