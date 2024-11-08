@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace  DesignPatterns\Tutorial\Structural\Adapter\Example1;
+namespace  DesignPatterns\Tutorial\Structural\Adapter\SlackNotification;
 
 class EmailNotification implements Notification
 {

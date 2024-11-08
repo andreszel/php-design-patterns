@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DesignPatterns\Structural\Adapter\Example2;
+namespace App\DesignPatterns\Structural\Adapter\Logger;
 
 class ExternalLoggerFileWriter implements NewFileWriter
 {
