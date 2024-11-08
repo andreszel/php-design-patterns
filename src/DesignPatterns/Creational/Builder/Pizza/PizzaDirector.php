@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace DesignPatterns\Tutorial\Creational\Builder\Example1;
+namespace DesignPatterns\Tutorial\Creational\Builder\Pizza;
 
-use DesignPatterns\Tutorial\Creational\Builder\Example1\Enum\PizzaSize;
+use DesignPatterns\Tutorial\Creational\Builder\Pizza\Enum\PizzaSize;
 
 class PizzaDirector
 {
@@ -13,7 +13,6 @@ class PizzaDirector
         $builder->setType();
         $builder->setCheeseType();
         $builder->setSauce();
-        $builder->setSize(PizzaSize::BIG_SIZE);
         $builder->setSpicy();
 
         return $builder->getPizza();

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DesignPatterns\Tutorial\Creational\Builder\Example1\Enum;
+namespace DesignPatterns\Tutorial\Creational\Builder\Pizza\Enum;
 
 enum PizzaSize: string
 {

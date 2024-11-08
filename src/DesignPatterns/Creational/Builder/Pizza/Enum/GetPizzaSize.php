@@ -1,6 +1,6 @@
 <?php
 
-namespace DesignPatterns\Tutorial\Creational\Builder\Example1\Enum;
+namespace DesignPatterns\Tutorial\Creational\Builder\Pizza\Enum;
 
 interface GetPizzaSize
 {

@@ -29,6 +29,11 @@ use App\DesignPatterns\Structural\Adapter\Example2\RandomProcessor;
 use App\DesignPatterns\Structural\Facade\Example1\Api;
 use App\Example\HelloWorld;
 use App\Helper\ConstHelper;
+use DesignPatterns\Tutorial\Creational\Builder\Pizza\CappriziozaBuilder;
+use DesignPatterns\Tutorial\Creational\Builder\Pizza\Enum\PizzaSize;
+use DesignPatterns\Tutorial\Creational\Builder\Pizza\PepperoniBuilder;
+use DesignPatterns\Tutorial\Creational\Builder\Pizza\Pizza;
+use DesignPatterns\Tutorial\Creational\Builder\Pizza\PizzaDirector;
 
 const ROOT_DIRECTORY = __DIR__;
 
@@ -123,6 +128,26 @@ Logger::log("\n");
 Logger::log(ConstHelper::SEPARATOR);
 Logger::log("\n");
 
+Logger::log("-> PRZYKLAD NR " . $counterExample++ . "\n\nBuilder - Pizza");
+Logger::log("");
+
+$pizzaSize = PizzaSize::MEDIUM_SIZE;
+$pizzaBuilder = new CappriziozaBuilder(new Pizza($pizzaSize));
+$pizzaDirector = new PizzaDirector();
+$pizza = $pizzaDirector->build($pizzaBuilder);
+
+Logger::log(ConstHelper::SEPARATOR);
+
+$pizzaSize = PizzaSize::SMALL_SIZE;
+$pizzaBuilder = new PepperoniBuilder(new Pizza($pizzaSize));
+$pizzaDirector = new PizzaDirector();
+$pizza = $pizzaDirector->build($pizzaBuilder);
+
+
+Logger::log("\n");
+Logger::log(ConstHelper::SEPARATOR);
+Logger::log("\n");
+
 Logger::log("-> PRZYKLAD NR " . $counterExample++ . "\n\nFactory method - Plan");
 Logger::log("");
 
@@ -198,6 +223,7 @@ $fcm = new FCM();
 $sms = new SMS();
 (new SendOtpSMS())->setSendable($sms)->notify();
 
+Logger::log("\n");
 Logger::log("-> PRZYKLAD NR " . $counterExample++ . " - BEHAVIORAL\n\nTemplate Method - Publishing Message on Social Network");
 Logger::log("");
 
