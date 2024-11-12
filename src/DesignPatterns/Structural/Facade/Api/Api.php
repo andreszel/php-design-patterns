@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DesignPatterns\Structural\Facade\Example1;
+namespace App\DesignPatterns\Structural\Facade\Api;
 
 class Api
 {
