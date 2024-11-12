@@ -6,7 +6,7 @@ final class NoDiscount implements DiscountI
 {
     private const DISCOUNT = 0;
 
-    public function calculateDiscount($price)
+    public function calculateDiscount($price): float
     {
         return self::DISCOUNT;
     }

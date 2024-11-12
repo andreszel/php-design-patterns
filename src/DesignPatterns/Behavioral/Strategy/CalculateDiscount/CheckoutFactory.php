@@ -2,27 +2,20 @@
 
 namespace App\DesignPatterns\Behavioral\Strategy\CalculateDiscount;
 
-use RuntimeException;
-
 class CheckoutFactory
 {
-    public static function create($price, $discountType)
+    public static function create($discountType): DiscountI
     {
         switch($discountType)
         {
             case 'coupon':
-                $discount = new DiscountCoupon();
-                break;
+                return new DiscountCoupon();
             case 'black_friday':
-                $discount = new BlackFriday();
-                break;
+                return new BlackFriday();
             case 'progress':
-                $discount = new ProgressDiscount();
-                break;
+                return new ProgressDiscount();
             default:
-                throw new RuntimeException('Unknown discount type');
+                return new NoDiscount();
         }
-
-        return new Checkout($price, $discount);
     }
 }

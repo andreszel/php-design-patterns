@@ -6,7 +6,7 @@ class BlackFriday implements DiscountI
 {
     private const PERCENT_DISCOUNT = 0.3;
 
-    public function calculateDiscount($price)
+    public function calculateDiscount($price): float
     {
         return $price * self::PERCENT_DISCOUNT;
     }

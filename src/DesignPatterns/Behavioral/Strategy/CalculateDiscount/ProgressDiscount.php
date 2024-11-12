@@ -10,7 +10,7 @@ final class ProgressDiscount implements DiscountI
     private const MIN_PRICE = 10;
     private const MAX_PRICE = 50;
 
-    public function calculateDiscount($price)
+    public function calculateDiscount($price): float
     {
         if($price > self::MAX_PRICE) {
             return $price * self::MAX_PERCENT_DISCOUNT;

@@ -7,7 +7,10 @@
 // Autoload files using the Composer autoloader.
 require_once __DIR__ . '/vendor/autoload.php';
 
+use App\DesignPatterns\Behavioral\Strategy\CalculateDiscount\Checkout;
 use App\DesignPatterns\Behavioral\Strategy\CalculateDiscount\CheckoutFactory;
+use App\DesignPatterns\Behavioral\Strategy\PaymentMethod\Payment;
+use App\DesignPatterns\Behavioral\Strategy\PaymentMethod\PaymentFactory;
 use App\DesignPatterns\Behavioral\Strategy\SendNotification\FCM;
 use App\DesignPatterns\Behavioral\Strategy\SendNotification\Mail;
 use App\DesignPatterns\Behavioral\Strategy\SendNotification\SendAnnouncementFCM;
@@ -26,7 +29,7 @@ use App\DesignPatterns\Structural\Adapter\Logger\ExternalLoggerFileWriter;
 use App\DesignPatterns\Structural\Adapter\Logger\ExternalLoggerFileWriterAdapter;
 use App\DesignPatterns\Structural\Adapter\Logger\LoggerFileWriter;
 use App\DesignPatterns\Structural\Adapter\Logger\RandomProcessor;
-use App\DesignPatterns\Structural\Facade\Example1\Api;
+use App\DesignPatterns\Structural\Facade\Api\Api;
 use App\Example\HelloWorld;
 use App\Helper\ConstHelper;
 use DesignPatterns\Tutorial\Creational\Builder\Pizza\CappriziozaBuilder;
@@ -205,12 +208,27 @@ Logger::log("\n");
 Logger::log("-> PRZYKLAD NR " . $counterExample++ . " - BEHAVIORAL\n\nStrategy - Calculate TOTAL PRICE in promotion(selected strategy)");
 Logger::log("");
 
-$totalPriceCoupon = CheckoutFactory::create(250, 'coupon')->getTotalPrice();
+$couponStrategy = CheckoutFactory::create('coupon');
+$checkout = new Checkout(250, $couponStrategy);
+$totalPriceCoupon = $checkout->getTotalPrice();
 Logger::log("Total price Coupon is: " . number_format($totalPriceCoupon, 2, '.', '') . " PLN");
-$totalPriceBlackFriday = CheckoutFactory::create(250, 'black_friday')->getTotalPrice();
+
+$blackFridayStrategy = CheckoutFactory::create('black_friday');
+$checkout = new Checkout(250, $blackFridayStrategy);
+$totalPriceBlackFriday = $checkout->getTotalPrice();
 Logger::log("Total price Black Friday is: " . number_format($totalPriceBlackFriday, 2, '.', '') . " PLN");
-$totalPriceProgress = CheckoutFactory::create(250, 'progress')->getTotalPrice();
+
+$progressStrategy = CheckoutFactory::create('progress');
+$checkout = new Checkout(250, $progressStrategy);
+$totalPriceProgress = $checkout->getTotalPrice();
 Logger::log("Total price Progress is: " . number_format($totalPriceProgress, 2, '.', '') . " PLN");
+
+// No discount, unknown disocunt
+$noDiscountStrategy = CheckoutFactory::create('super');
+$checkout = new Checkout(250, $noDiscountStrategy);
+$totalPriceNoDiscount = $checkout->getTotalPrice();
+Logger::log("Total price No Discount or Unknown Discount is: " . number_format($totalPriceNoDiscount, 2, '.', '') . " PLN");
+
 Logger::log("\n");
 
 Logger::log("-> PRZYKLAD NR " . $counterExample++ . " - BEHAVIORAL\n\nStrategy - Send notification");
@@ -224,6 +242,13 @@ $sms = new SMS();
 (new SendOtpSMS())->setSendable($sms)->notify();
 
 Logger::log("\n");
+Logger::log("-> PRZYKLAD NR " . $counterExample++ . " - BEHAVIORAL\n\nStrategy - Payment Method\n");
+
+$paymentStrategy = PaymentFactory::create('paypal');
+$payment = new Payment(220, $paymentStrategy);
+$payment->process();
+
+Logger::log("\n\n");
 Logger::log("-> PRZYKLAD NR " . $counterExample++ . " - BEHAVIORAL\n\nTemplate Method - Publishing Message on Social Network");
 Logger::log("");
 

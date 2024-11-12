@@ -1,0 +1,1 @@
+{"version":1,"defects":[],"times":{"ConnectDBTest::testIfOnlyOneInstanceExists":4.109,"ConnectDBTest::testCannotCloneConnectDB":0.002,"ConnectDBTest::testCannotDeserializeConnectDB":0,"CreditCardTest::testPay":0.002}}
