@@ -4,9 +4,9 @@ namespace App\DesignPatterns\Behavioral\TemplateMethod\PublishingMessageOnSocial
 
 abstract class SocialNetwork
 {
-    protected $username;
+    protected string $username;
 
-    protected $password;
+    protected string $password;
 
     public function __construct(string $username, string $password)
     {
@@ -23,6 +23,8 @@ abstract class SocialNetwork
 
             return $result;
         }
+
+        return false;
     }
 
     abstract public function logIn(string $userName, string $password): bool;
