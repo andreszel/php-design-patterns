@@ -2,7 +2,7 @@
 
 namespace App\DesignPatterns\Behavioral\Strategy\SendNotification;
 
-interface Sendable
+interface SendableI
 {
     public function send(): void;
 }

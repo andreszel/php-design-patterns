@@ -4,23 +4,22 @@ namespace App\DesignPatterns\Behavioral\Strategy\CalculateDiscount;
 
 class Checkout
 {
-    private $price;
-    private $strategy;
+    private float $price;
+    private DiscountI $discountStrategy;
 
-    public function __construct(float $price, DiscountI $strategy)
+    public function __construct(float $price, DiscountI $discountStrategy)
     {
         $this->price = $price;
-        $this->strategy = $strategy;
+        $this->discountStrategy = $discountStrategy;
     }
 
-    // if we want change strategy object at runtime
-    public function setStrategy(DiscountI $strategy): void
+    public function setStrategy(DiscountI $discountStrategy): void
     {
-        $this->strategy = $strategy;
+        $this->discountStrategy = $discountStrategy;
     }
 
     public function getTotalPrice(): float
     {
-        return $this->price - $this->strategy->calculateDiscount($this->price);
+        return $this->price - $this->discountStrategy->calculateDiscount($this->price);
     }
 }

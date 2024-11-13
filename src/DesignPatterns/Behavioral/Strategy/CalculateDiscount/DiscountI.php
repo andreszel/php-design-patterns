@@ -5,5 +5,5 @@ namespace App\DesignPatterns\Behavioral\Strategy\CalculateDiscount;
 
 interface DiscountI
 {
-    public function calculateDiscount($price): float;
+    public function calculateDiscount(float $price): float;
 }

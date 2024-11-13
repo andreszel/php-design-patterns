@@ -4,16 +4,16 @@ namespace App\DesignPatterns\Behavioral\Strategy\PaymentMethod;
 
 class Payment
 {
-    private $amount;
-    private $strategy;
+    private float $amount;
+    private PaymentI $paymentStrategy;
 
-    public function __construct(float $amount, PaymentI $strategy)
+    public function __construct(float $amount, PaymentI $paymentStrategy)
     {
         $this->amount = $amount;
-        $this->strategy = $strategy;
+        $this->paymentStrategy = $paymentStrategy;
     }
 
     public function process(): void {
-        $this->strategy->pay($this->amount);
+        $this->paymentStrategy->pay($this->amount);
     }
 }

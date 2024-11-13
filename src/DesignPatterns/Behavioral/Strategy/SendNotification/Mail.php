@@ -2,7 +2,7 @@
 
 namespace App\DesignPatterns\Behavioral\Strategy\SendNotification;
 
-class Mail implements Sendable
+class Mail implements SendableI
 {
     public function send(): void
     {

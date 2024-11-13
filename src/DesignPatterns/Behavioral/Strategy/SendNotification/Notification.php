@@ -4,9 +4,9 @@ namespace App\DesignPatterns\Behavioral\Strategy\SendNotification;
 
 class Notification
 {
-    public Sendable $sendable;
+    public SendableI $sendable;
 
-    public function setSendable(Sendable $sendable): self
+    public function setSendable(SendableI $sendable): self
     {
         $this->sendable = $sendable;
         return $this;
