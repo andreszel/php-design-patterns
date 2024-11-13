@@ -2,7 +2,7 @@
 
 namespace App\DesignPatterns\Behavioral\Strategy\SendNotification;
 
-class SMS implements SendableI
+final class SMS implements SendableI
 {
     public function send(): void
     {

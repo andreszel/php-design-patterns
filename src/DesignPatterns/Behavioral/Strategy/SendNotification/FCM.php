@@ -2,7 +2,7 @@
 
 namespace App\DesignPatterns\Behavioral\Strategy\SendNotification;
 
-class FCM implements SendableI
+final class FCM implements SendableI
 {
     public function send(): void
     {

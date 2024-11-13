@@ -2,7 +2,7 @@
 
 namespace App\DesignPatterns\Behavioral\Strategy\PaymentMethod;
 
-class BankTransfer implements PaymentI
+final class BankTransfer implements PaymentI
 {
     public function pay(float $amount): void
     {
