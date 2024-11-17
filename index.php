@@ -281,18 +281,3 @@ if ($choice == 1) {
 $network->post($message);
 
 Logger::log("");
-
-
-
-/**
- * A little helper function that makes waiting times feel real.
- */
-function simulateNetworkLatency()
-{
-    $i = 0;
-    while ($i < 5) {
-        echo ".";
-        sleep(1);
-        $i++;
-    }
-}

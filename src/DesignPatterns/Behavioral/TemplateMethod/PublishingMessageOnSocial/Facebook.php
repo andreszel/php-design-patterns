@@ -6,26 +6,24 @@ class Facebook extends SocialNetwork
 {
     public function logIn(string $userName, string $password): bool
     {
-        echo "\nChecking user's creentials...\n";
-        echo "Name: " . $this->username . "\n";
-        echo "Password: " . str_repeat("*", strlen($this->password)) . "\n";
+        echo "Checking user's credentials.... Name: " . $this->username . ", Password: " . str_repeat("*", strlen($this->password)). ". ";
 
-        simulateNetworkLatency();
+        NetworkUtils::simulateNetworkLatency();
 
-        echo "\n\nFacebook: '" . $this->username . "' has logged in successfully.\n";
+        echo "Facebook: '" . $this->username . "' has logged in successfully. ";
 
         return true;
     }
 
     public function sendData(string $message): bool
     {
-        echo "Facebook: '" . $this->username . "' has posted '" . $message . "'.\n ";
+        echo "Facebook: '" . $this->username . "' has posted '" . $message . "'. ";
 
         return true;
     }
 
     public function logOut(): void
     {
-        echo "Facebook: '" . $this->username . "' has been logged out.\n";
+        echo "Facebook: '" . $this->username . "' has been logged out.";
     }
 }
