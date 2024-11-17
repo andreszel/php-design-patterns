@@ -3,11 +3,6 @@
 use App\DesignPatterns\Behavioral\Strategy\CalculateDiscount\NoDiscount;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @test
- * @group calculate-discount
- * @testdox [CalculateDiscount] NoDiscount: Strategy
- */
 class NoDiscountTest extends TestCase
 {
     /**

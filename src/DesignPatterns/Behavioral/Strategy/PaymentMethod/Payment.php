@@ -13,6 +13,11 @@ class Payment
         $this->paymentStrategy = $paymentStrategy;
     }
 
+    public function setStrategy(PaymentI $paymentStrategy): void
+    {
+        $this->paymentStrategy = $paymentStrategy;
+    }
+
     public function process(): void {
         $this->paymentStrategy->pay($this->amount);
     }

@@ -5,6 +5,11 @@ declare(strict_types=1);
 use App\DesignPatterns\Creational\Singleton\ConnectDB;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @test
+ * @group singleton-connect-db
+ * @testdox [Singleton] ConnectDB: Integration Test
+ */
 final class ConnectDBTest extends TestCase
 {
     public function testIfOnlyOneInstanceExists(): void

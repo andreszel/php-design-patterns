@@ -235,11 +235,14 @@ Logger::log("-> PRZYKLAD NR " . $counterExample++ . " - BEHAVIORAL\n\nStrategy -
 Logger::log("");
 
 $email = new Mail();
-(new SendVerificationEmail())->setSendable($email)->notify();
 $fcm = new FCM();
-(new SendAnnouncementFCM())->setSendable($fcm)->notify();
 $sms = new SMS();
-(new SendOtpSMS())->setSendable($sms)->notify();
+$verificationEmail = new SendVerificationEmail($email);
+$verificationEmail->setStrategy($email)->notify();
+$anouncementFCM = new SendAnnouncementFCM($email);
+$anouncementFCM->setStrategy($fcm)->notify();
+$otpSMS = new SendOtpSMS($email);
+$otpSMS->setStrategy($sms)->notify();
 
 Logger::log("\n");
 Logger::log("-> PRZYKLAD NR " . $counterExample++ . " - BEHAVIORAL\n\nStrategy - Payment Method\n");

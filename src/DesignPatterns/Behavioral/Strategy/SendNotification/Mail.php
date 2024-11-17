@@ -6,6 +6,6 @@ final class Mail implements SendableI
 {
     public function send(): void
     {
-        echo "Notification send from: Mail\n";
+        echo "Notification send from: Mail";
     }
 }

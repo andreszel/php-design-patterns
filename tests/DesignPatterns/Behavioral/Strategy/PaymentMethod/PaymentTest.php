@@ -7,9 +7,10 @@ use App\DesignPatterns\Behavioral\Strategy\PaymentMethod\PayPal;
 use PHPUnit\Framework\TestCase;
 
 /**
-     * @test
-     * @testdox Payment: Integration Test
-     */
+ * @test
+ * @group strategy-payment-method
+ * @testdox [PaymentMethod] Payment: Integration Test
+ */
 class PaymentTest extends TestCase
 {
     /**

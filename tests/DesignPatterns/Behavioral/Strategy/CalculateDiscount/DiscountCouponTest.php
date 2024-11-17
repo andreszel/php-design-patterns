@@ -3,11 +3,6 @@
 use App\DesignPatterns\Behavioral\Strategy\CalculateDiscount\DiscountCoupon;
 use PHPUnit\Framework\TestCase;
 
-/**
-     * @test
-     * @group calculate-discount
-     * @testdox [CalculateDiscount] DiscountCoupon: Strategy
-     */
 class DiscountCouponTest extends TestCase
 {
     /**

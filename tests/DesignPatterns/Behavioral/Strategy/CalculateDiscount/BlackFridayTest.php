@@ -3,11 +3,6 @@
 use App\DesignPatterns\Behavioral\Strategy\CalculateDiscount\BlackFriday;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @test
- * @group calculate-discount
- * @testdox [CalculateDiscount] BlackFriday: Strategy
- */
 class BlackFridayTest extends TestCase
 {
     /**

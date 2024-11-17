@@ -3,11 +3,6 @@
 use App\DesignPatterns\Behavioral\Strategy\CalculateDiscount\ProgressDiscount;
 use PHPUnit\Framework\TestCase;
 
-/**
-     * @test
-     * @group calculate-discount
-     * @testdox [CalculateDiscount] ProgressDiscount: Strategy
-     */
 class ProgressDiscountTest extends TestCase
 {
     /**

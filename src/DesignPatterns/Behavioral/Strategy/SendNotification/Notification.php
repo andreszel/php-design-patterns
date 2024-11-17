@@ -4,16 +4,21 @@ namespace App\DesignPatterns\Behavioral\Strategy\SendNotification;
 
 class Notification
 {
-    public SendableI $sendable;
+    public SendableI $sendableStrategy;
 
-    public function setSendable(SendableI $sendable): self
+    public function __construct(SendableI $sendableStrategy)
     {
-        $this->sendable = $sendable;
+        $this->sendableStrategy = $sendableStrategy;
+    }
+
+    public function setStrategy(SendableI $sendableStrategy): self
+    {
+        $this->sendableStrategy = $sendableStrategy;
         return $this;
     }
 
     public function notify()
     {
-        return $this->sendable->send();
+        return $this->sendableStrategy->send();
     }
 }

@@ -6,6 +6,6 @@ final class FCM implements SendableI
 {
     public function send(): void
     {
-        echo "Notification send from: FCM\n";
+        echo "Notification send from: FCM";
     }
 }

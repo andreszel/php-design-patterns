@@ -5,10 +5,10 @@ use App\DesignPatterns\Behavioral\Strategy\CalculateDiscount\CheckoutFactory;
 use PHPUnit\Framework\TestCase;
 
 /**
-     * @test
-     * @group calculate-discount
-     * @testdox [CalculateDiscount] Checkout: Integration Test
-     */
+ * @test
+ * @group strategy-calculate-discount
+ * @testdox [CalculateDiscount] Checkout: Integration Test
+ */
 class CheckoutTest extends TestCase
 {
     /**
