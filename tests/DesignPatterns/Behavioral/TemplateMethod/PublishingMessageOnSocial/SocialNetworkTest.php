@@ -15,7 +15,7 @@ class SocialNetworkTest extends TestCase
     {
         $facebook = new Facebook('user', 'password');
         $message = "Hello, Facebook!";
-        $this->expectOutputString("Checking user's credentials.... Name: user, Password: " . str_repeat("*", strlen('password')) . ". .....Facebook: 'user' has logged in successfully. Facebook: 'user' has posted 'Hello, Facebook!'. Facebook: 'user' has been logged out.");
+        $this->expectOutputString("Checking user's credentials.... Name: user, Password: " . str_repeat("*", strlen('password')) . ". ***** Facebook: 'user' has logged in successfully. Facebook: 'user' has posted 'Hello, Facebook!'. Facebook: 'user' has been logged out.");
         $result = $facebook->post($message);
         $this->assertTrue($result, 'The post method should return true.');
     }
@@ -24,7 +24,7 @@ class SocialNetworkTest extends TestCase
     {
         $twitter = new Twitter('user', 'password');
         $message = "Hello, Twitter!";
-        $this->expectOutputString("Checking user's credentials.... Name: user, Password: " . str_repeat("*", strlen('password')) . ". .....Twitter: 'user' has logged in successfully. Twitter: 'user' has posted 'Hello, Twitter!'. Twitter: 'user' has been logged out.");
+        $this->expectOutputString("Checking user's credentials.... Name: user, Password: " . str_repeat("*", strlen('password')) . ". ***** Twitter: 'user' has logged in successfully. Twitter: 'user' has posted 'Hello, Twitter!'. Twitter: 'user' has been logged out.");
         $result = $twitter->post($message);
         $this->assertTrue($result, 'The post method should return true.');
     }

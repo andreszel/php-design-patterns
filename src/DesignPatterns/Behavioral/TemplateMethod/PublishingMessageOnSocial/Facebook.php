@@ -2,7 +2,7 @@
 
 namespace App\DesignPatterns\Behavioral\TemplateMethod\PublishingMessageOnSocial;
 
-class Facebook extends SocialNetwork
+final class Facebook extends SocialNetwork
 {
     public function logIn(string $userName, string $password): bool
     {

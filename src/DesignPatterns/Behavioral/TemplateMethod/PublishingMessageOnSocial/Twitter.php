@@ -2,7 +2,7 @@
 
 namespace App\DesignPatterns\Behavioral\TemplateMethod\PublishingMessageOnSocial;
 
-class Twitter extends SocialNetwork
+final class Twitter extends SocialNetwork
 {
     public function logIn(string $userName, string $password): bool
     {

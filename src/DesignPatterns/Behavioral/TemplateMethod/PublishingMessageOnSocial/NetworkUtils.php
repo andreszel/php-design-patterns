@@ -11,9 +11,10 @@ class NetworkUtils
     {
         $i = 0;
         while ($i < 5) {
-            echo ".";
+            echo "*";
             sleep(1);
             $i++;
         }
+        echo " ";
     }
 }
