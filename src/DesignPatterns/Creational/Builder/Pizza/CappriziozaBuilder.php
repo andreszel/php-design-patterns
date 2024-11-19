@@ -8,7 +8,7 @@ namespace DesignPatterns\Tutorial\Creational\Builder\Pizza;
 
 class CappriziozaBuilder implements PizzaBuilderInterface
 {
-    private const NAME = 'Caprizioza';
+    private const NAME = 'Capprizioza';
     private const CHEESE_NAME = 'Mozzarella';
     private const SAUCE_NAME = 'Tomato';
     private const SPICY = true;
