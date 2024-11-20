@@ -21,6 +21,9 @@ use App\DesignPatterns\Behavioral\TemplateMethod\PublishingMessageOnSocial\Faceb
 use App\DesignPatterns\Behavioral\TemplateMethod\PublishingMessageOnSocial\Twitter;
 use App\DesignPatterns\Creational\AbstractFactory\Page;
 use App\DesignPatterns\Creational\AbstractFactory\PHPTemplateFactory;
+use App\DesignPatterns\Creational\Builder\SQLQuery\MysqlQueryBuilder;
+use App\DesignPatterns\Creational\Builder\SQLQuery\PostgresQueryBuilder;
+use App\DesignPatterns\Creational\Builder\SQLQuery\SqlQueryFactory;
 use App\DesignPatterns\Creational\FactoryMethod\Plan\PlanFactory;
 use App\DesignPatterns\Creational\Singleton\Config;
 use App\DesignPatterns\Creational\Singleton\ConnectDB;
@@ -146,6 +149,25 @@ $pizzaBuilder = new PepperoniBuilder(new Pizza($pizzaSize));
 $pizzaDirector = new PizzaDirector();
 $pizza = $pizzaDirector->build($pizzaBuilder);
 
+Logger::log("\n");
+Logger::log(ConstHelper::SEPARATOR);
+Logger::log("\n");
+
+Logger::log("-> PRZYKLAD NR " . $counterExample++ . "\n\nBuilder - SQLQuery");
+Logger::log("");
+
+$sqlQueryFactory = new SqlQueryFactory();
+$queryFromMysql = $sqlQueryFactory->clientCode(new MysqlQueryBuilder());
+$queryFromPostgres = $sqlQueryFactory->clientCode(new PostgresQueryBuilder());
+
+echo "Query from MySQL:\n";
+echo $queryFromMysql;
+echo "\n\n";
+echo "Query from Postgres:\n";
+echo $queryFromPostgres;
+echo "\n\n";
+
+die;
 
 Logger::log("\n");
 Logger::log(ConstHelper::SEPARATOR);
