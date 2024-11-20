@@ -1,4 +1,13 @@
 <phpunit colors="true">
+    <php>
+        <ini name="error_reporting" value="-1"/>
+        <ini name="display_errors" value="1"/>
+        <ini name="display_startup_errors" value="1"/>
+    </php>
+    <logging>
+        <log type="junit" target="logfile.xml"/>
+        <log type="teamcity" target="php://stdout"/>
+    </logging>
     <testsuites>
         <testsuite name="My Test Suite">
             <directory>./tests</directory>
