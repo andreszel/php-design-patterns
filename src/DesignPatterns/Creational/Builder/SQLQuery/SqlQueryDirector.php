@@ -2,7 +2,7 @@
 
 namespace App\DesignPatterns\Creational\Builder\SQLQuery;
 
-class SqlQueryFactory
+class SqlQueryDirector
 {
     public function clientCode(SqlQueryBuilder $queryBuilder): string
     {

@@ -23,7 +23,7 @@ use App\DesignPatterns\Creational\AbstractFactory\Page;
 use App\DesignPatterns\Creational\AbstractFactory\PHPTemplateFactory;
 use App\DesignPatterns\Creational\Builder\SQLQuery\MysqlQueryBuilder;
 use App\DesignPatterns\Creational\Builder\SQLQuery\PostgresQueryBuilder;
-use App\DesignPatterns\Creational\Builder\SQLQuery\SqlQueryFactory;
+use App\DesignPatterns\Creational\Builder\SQLQuery\SqlQueryDirector;
 use App\DesignPatterns\Creational\FactoryMethod\Plan\PlanFactory;
 use App\DesignPatterns\Creational\Singleton\Config;
 use App\DesignPatterns\Creational\Singleton\ConnectDB;
@@ -156,7 +156,7 @@ Logger::log("\n");
 Logger::log("-> PRZYKLAD NR " . $counterExample++ . "\n\nBuilder - SQLQuery");
 Logger::log("");
 
-$sqlQueryFactory = new SqlQueryFactory();
+$sqlQueryFactory = new SqlQueryDirector();
 $queryFromMysql = $sqlQueryFactory->clientCode(new MysqlQueryBuilder());
 $queryFromPostgres = $sqlQueryFactory->clientCode(new PostgresQueryBuilder());
 
