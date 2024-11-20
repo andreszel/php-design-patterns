@@ -1,10 +1,10 @@
 <?php
 
-namespace App\DesignPatterns\Creational\FactoryMethod\Plan\Pro;
+namespace App\DesignPatterns\Creational\FactoryMethod\Plan;
 
-use App\DesignPatterns\Creational\FactoryMethod\Plan\Plan as MasterPlan;
+use App\DesignPatterns\Creational\FactoryMethod\Plan\MasterPlan;
 
-class Plan extends MasterPlan
+class PlanPro extends MasterPlan
 {
     private const RATE = 150;
 

@@ -155,15 +155,14 @@ Logger::log("-> PRZYKLAD NR " . $counterExample++ . "\n\nFactory method - Plan")
 Logger::log("");
 
 $planFactory = new PlanFactory();
-$plan = $planFactory->createPlan('free');
+$plan = $planFactory->createPlan('pro');
 //$plan = $planFactory->createPlan('pro');
 if ($plan) {
-    echo '<p>' . $plan->getRate() . '</p>';
-    echo '<ul>';
-        foreach ($plan->getFeatures() as $feature) {
-            echo '<li>' . $feature . '</li>';
-        }
-    echo '</ul>';
+    echo 'Rate: ' . $plan->getRate() . "\n";
+    foreach ($plan->getFeatures() as $feature) {
+        echo '- ' . $feature . "\n";
+    }
+    echo "\n";
 }
 
 Logger::log("\n");

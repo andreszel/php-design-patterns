@@ -2,7 +2,7 @@
 
 namespace App\DesignPatterns\Creational\FactoryMethod\Plan;
 
-abstract class Plan
+abstract class MasterPlan
 {
     protected array $features = [];
 
