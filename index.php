@@ -144,9 +144,9 @@ Logger::log("");
 $articleFactory = new SimpleArticleFactory();
 $cms = new CMS($articleFactory);
 
-$textArticle = $cms->renderArticle('text', 'Article title', 'This is a text article.');
-$imageArticle = $cms->renderArticle('image', 'Article title', 'This is a image article.');
-$videoArticle = $cms->renderArticle('video', 'Article title', 'This is a video article.');
+$textArticle = $cms->renderArticle('text', 'Text article title', 'This is a text article.');
+$imageArticle = $cms->renderArticle('image', 'Image article title', '/path/to/image.jpg');
+$videoArticle = $cms->renderArticle('video', 'Video article title', '/path/to/video.mp4');
 echo "Text article: \n\t$textArticle";
 echo "\n\n";
 echo "Image article: \n\t$imageArticle";
