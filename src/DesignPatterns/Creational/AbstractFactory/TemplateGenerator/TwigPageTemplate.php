@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\DesignPatterns\Creational\AbstractFactory;
+namespace App\DesignPatterns\Creational\AbstractFactory\TemplateGenerator;
 
-class SmartyPageTemplate extends BasePageTemplate
+class TwigPageTemplate extends BasePageTemplate
 {
     public function getTemplateString(): string
     {
         $renderedTitle = $this->titleTemplate->getTemplateString();
 
         return <<<HTML
-        <div class="container">
+        <div class="page">
             $renderedTitle
             <article class="content">{{ content }}</article>
         </div>

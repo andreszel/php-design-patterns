@@ -19,8 +19,11 @@ use App\DesignPatterns\Behavioral\Strategy\SendNotification\SMS;
 use App\DesignPatterns\Behavioral\Strategy\SendNotification\SMSNotification;
 use App\DesignPatterns\Behavioral\TemplateMethod\PublishingMessageOnSocial\Facebook;
 use App\DesignPatterns\Behavioral\TemplateMethod\PublishingMessageOnSocial\Twitter;
-use App\DesignPatterns\Creational\AbstractFactory\Page;
-use App\DesignPatterns\Creational\AbstractFactory\PHPTemplateFactory;
+use App\DesignPatterns\Creational\AbstractFactory\BladeTemplateFactory;
+use App\DesignPatterns\Creational\AbstractFactory\CMS\CMS;
+use App\DesignPatterns\Creational\AbstractFactory\CMS\SimpleArticleFactory;
+use App\DesignPatterns\Creational\AbstractFactory\TemplateGenerator\Page;
+use App\DesignPatterns\Creational\AbstractFactory\TemplateGenerator\PHPTemplateFactory;
 use App\DesignPatterns\Creational\Builder\SQLQuery\MysqlQueryBuilder;
 use App\DesignPatterns\Creational\Builder\SQLQuery\PostgresQueryBuilder;
 use App\DesignPatterns\Creational\Builder\SQLQuery\SqlQueryDirector;
@@ -40,6 +43,7 @@ use DesignPatterns\Tutorial\Creational\Builder\Pizza\Enum\PizzaSize;
 use DesignPatterns\Tutorial\Creational\Builder\Pizza\PepperoniBuilder;
 use DesignPatterns\Tutorial\Creational\Builder\Pizza\Pizza;
 use DesignPatterns\Tutorial\Creational\Builder\Pizza\PizzaDirector;
+use Jenssegers\Blade\Blade;
 
 const ROOT_DIRECTORY = __DIR__;
 
@@ -134,6 +138,26 @@ Logger::log("\n");
 Logger::log(ConstHelper::SEPARATOR);
 Logger::log("\n");
 
+Logger::log("-> PRZYKLAD NR " . $counterExample++ . " - Fabryka abstrakcyjna - CMS");
+Logger::log("");
+
+$articleFactory = new SimpleArticleFactory();
+$cms = new CMS($articleFactory);
+
+$textArticle = $cms->renderArticle('text', 'Article title', 'This is a text article.');
+$imageArticle = $cms->renderArticle('image', 'Article title', 'This is a image article.');
+$videoArticle = $cms->renderArticle('video', 'Article title', 'This is a video article.');
+echo "Text article: \n\t$textArticle";
+echo "\n\n";
+echo "Image article: \n\t$imageArticle";
+echo "\n\n";
+echo "Video article: \n\t$videoArticle";
+echo "\n";
+
+Logger::log("\n");
+Logger::log(ConstHelper::SEPARATOR);
+Logger::log("\n");
+
 Logger::log("-> PRZYKLAD NR " . $counterExample++ . "\n\nBuilder - Pizza");
 Logger::log("");
 
@@ -166,8 +190,6 @@ echo "\n\n";
 echo "Query from Postgres:\n";
 echo $queryFromPostgres;
 echo "\n\n";
-
-die;
 
 Logger::log("\n");
 Logger::log(ConstHelper::SEPARATOR);
