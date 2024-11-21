@@ -60,4 +60,17 @@ class ArticleFactoryTest extends TestCase
         $cms = new CMS($this->factory);
         $cms->renderArticle('unknown', 'Unknown title', 'Unknown content');
     }
+
+    public function testCreateTextArticleWithEmptyContent() {
+        $article = $this->factory->createTextArticle('Title', '');
+        $this->assertEquals('', $article->getContent());
+        $this->assertStringContainsString('<p></p>', $article->render());
+    }
+
+    public function testCreateTextArticleWithLongContent() {
+        $longContent = str_repeat(' Long Content ', 1000);
+        $article = $this->factory->createTextArticle('Title', $longContent);
+        $this->assertEquals($longContent, $article->getContent());
+        $this->assertStringContainsString('<p>' . $longContent . '</p>', $article->render());
+    }
 }
