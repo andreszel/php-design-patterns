@@ -7,6 +7,10 @@ use App\DesignPatterns\Creational\Factory\Toy\ToyFactory;
 use App\DesignPatterns\Creational\Factory\Toy\ToyType;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @test
+ * @group creational-factory-toy
+ */
 class ToyFactoryTest extends TestCase
 {
     private ToyFactory $factory;

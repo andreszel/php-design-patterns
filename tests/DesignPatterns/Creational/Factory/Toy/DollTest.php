@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
  */
 class DollTest extends TestCase
 {
-    public function testDescription() {
+    public function testGetDescription() {
         $doll = new Doll();
         $this->assertInstanceOf(Doll::class, $doll);
         $this->assertEquals("This is a doll!", $doll->getDescription());

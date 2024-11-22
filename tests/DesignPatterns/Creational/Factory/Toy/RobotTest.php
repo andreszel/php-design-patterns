@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
  */
 class RobotTest extends TestCase
 {
-    public function testDescription() {
+    public function testGetDescription() {
         $robot = new Robot();
         $this->assertInstanceOf(Robot::class, $robot);
         $this->assertEquals("This is a robot!", $robot->getDescription());
