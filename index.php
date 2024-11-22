@@ -27,6 +27,8 @@ use App\DesignPatterns\Creational\AbstractFactory\TemplateGenerator\PHPTemplateF
 use App\DesignPatterns\Creational\Builder\SQLQuery\MysqlQueryBuilder;
 use App\DesignPatterns\Creational\Builder\SQLQuery\PostgresQueryBuilder;
 use App\DesignPatterns\Creational\Builder\SQLQuery\SqlQueryDirector;
+use App\DesignPatterns\Creational\Factory\Toy\ToyFactory;
+use App\DesignPatterns\Creational\Factory\Toy\ToyType;
 use App\DesignPatterns\Creational\FactoryMethod\Plan\PlanFactory;
 use App\DesignPatterns\Creational\Singleton\Config;
 use App\DesignPatterns\Creational\Singleton\ConnectDB;
@@ -172,6 +174,26 @@ $pizzaSize = PizzaSize::SMALL_SIZE;
 $pizzaBuilder = new PepperoniBuilder(new Pizza($pizzaSize));
 $pizzaDirector = new PizzaDirector();
 $pizza = $pizzaDirector->build($pizzaBuilder);
+
+Logger::log("\n");
+Logger::log(ConstHelper::SEPARATOR);
+Logger::log("\n");
+
+Logger::log("-> PRZYKLAD NR " . $counterExample++ . "\n\nFactory pattern - Toy");
+Logger::log("");
+
+$toyTypeDoll = ToyType::Doll;
+$toyTypeRobot = ToyType::Robot;
+$toyTypeCar = ToyType::Car;
+$toyFactory = new ToyFactory();
+$dollToy = $toyFactory->getToy($toyTypeDoll);
+$robotToy = $toyFactory->getToy($toyTypeRobot);
+$carToy = $toyFactory->getToy($toyTypeCar);
+echo "Manufactured toys: \n";
+
+echo $dollToy->getDescription() . "\n";
+echo $robotToy->getDescription() . "\n";
+echo $carToy->getDescription() . "\n";
 
 Logger::log("\n");
 Logger::log(ConstHelper::SEPARATOR);
