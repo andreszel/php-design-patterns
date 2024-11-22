@@ -27,6 +27,10 @@ use App\DesignPatterns\Creational\AbstractFactory\TemplateGenerator\PHPTemplateF
 use App\DesignPatterns\Creational\Builder\SQLQuery\MysqlQueryBuilder;
 use App\DesignPatterns\Creational\Builder\SQLQuery\PostgresQueryBuilder;
 use App\DesignPatterns\Creational\Builder\SQLQuery\SqlQueryDirector;
+use App\DesignPatterns\Creational\Factory\Breakfast\BreakfastFactory;
+use App\DesignPatterns\Creational\Factory\Breakfast\BreakfastFit;
+use App\DesignPatterns\Creational\Factory\Breakfast\BreakfastMeat;
+use App\DesignPatterns\Creational\Factory\Breakfast\BreakfastMilk;
 use App\DesignPatterns\Creational\Factory\Toy\ToyFactory;
 use App\DesignPatterns\Creational\Factory\Toy\ToyType;
 use App\DesignPatterns\Creational\FactoryMethod\Plan\PlanFactory;
@@ -194,6 +198,28 @@ echo "Manufactured toys: \n";
 echo $dollToy->getDescription() . "\n";
 echo $robotToy->getDescription() . "\n";
 echo $carToy->getDescription() . "\n";
+
+Logger::log("\n");
+Logger::log(ConstHelper::SEPARATOR);
+Logger::log("\n");
+
+Logger::log("-> PRZYKLAD NR " . $counterExample++ . "\nFactory pattern - Breakfast");
+Logger::log("");
+
+$breakfastFactory = new BreakfastFactory();
+$breakfastFactory->registryBreakfast('milk', fn() => new BreakfastMilk());
+$breakfastFactory->registryBreakfast('meat', fn() => new BreakfastMeat());
+$breakfastFactory->registryBreakfast('fit', fn() => new BreakfastFit());
+
+$milkBreakfast = $breakfastFactory->getBreakfast('milk');
+$meatBreakfast = $breakfastFactory->getBreakfast('meat');
+$fitBreakfast = $breakfastFactory->getBreakfast('fit');
+
+echo "Maked breakfast: \n";
+
+echo $milkBreakfast->getDescription() . "\n";
+echo $meatBreakfast->getDescription() . "\n";
+echo $fitBreakfast->getDescription() . "\n";
 
 Logger::log("\n");
 Logger::log(ConstHelper::SEPARATOR);
