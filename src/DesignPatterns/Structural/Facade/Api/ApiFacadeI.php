@@ -2,7 +2,7 @@
 
 namespace App\DesignPatterns\Structural\Facade\Api;
 
-interface ApiI
+interface ApiFacadeI
 {
     public function login(): array;
     public function register(): array;

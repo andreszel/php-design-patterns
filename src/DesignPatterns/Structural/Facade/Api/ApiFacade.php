@@ -2,7 +2,7 @@
 
 namespace App\DesignPatterns\Structural\Facade\Api;
 
-class Api implements ApiI
+class ApiFacade implements ApiFacadeI
 {
     private UserI $user;
     private CartI $cart;
